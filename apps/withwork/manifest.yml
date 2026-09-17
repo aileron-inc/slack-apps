@@ -1,10 +1,12 @@
 # Slack app manifest (schema v2) for コロ助 / withworkコロ助
 # Docs: https://docs.slack.dev/reference/app-manifest
 #
-# event_subscriptions.request_url is intentionally omitted.
-# Set it in Slack App settings AFTER slack-support-bypass is deployed:
+# Notes (2026-09-17):
+# - features.bot_user.display_name must be ASCII for apps.manifest.create → `kolosuke`
+#   (display_information.name stays 日本語). Slack UI can still show コロ助 if set there.
+# - event_subscriptions.request_url is set AFTER aileron-inc/slack-support-bypass is deployed:
 #   https://<bypass-worker>/slack/withwork
-# Do not invent a workers.dev hostname in this file.
+# - Do not invent a workers.dev hostname here.
 
 _metadata:
   major_version: 2
@@ -15,8 +17,7 @@ display_information:
 
 features:
   bot_user:
-    display_name: コロ助
-  # slash_commands: none for v1
+    display_name: kolosuke
 
 oauth_config:
   scopes:
@@ -29,8 +30,4 @@ oauth_config:
 settings:
   org_deploy_enabled: false
   socket_mode_enabled: false
-  event_subscriptions:
-    bot_events:
-      - app_mention
-      - message.channels
-      - message.groups
+  # event_subscriptions added after Worker deploy (Request URL required by Slack API)
