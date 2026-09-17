@@ -1,23 +1,24 @@
-# Slack app manifest (schema v2) for コロ助 / withworkコロ助
+# Slack app manifest (schema v2) for マル之進 (withwork support auto-reply)
 # Docs: https://docs.slack.dev/reference/app-manifest
 #
 # Notes (2026-09-17):
-# - features.bot_user.display_name must be ASCII for apps.manifest.create → `kolosuke`
-#   (display_information.name stays 日本語). Slack UI can still show コロ助 if set there.
+# - App display name: マル之進
+# - features.bot_user.display_name is ASCII only for apps.manifest.* → `marunoshin`
+#   (@mention is @marunoshin). If Slack UI allows a Japanese bot display name, set マル之進 there.
 # - event_subscriptions.request_url is set AFTER aileron-inc/slack-support-bypass is deployed:
 #   https://<bypass-worker>/slack/withwork
-# - Do not invent a workers.dev hostname here.
+# - Route/secrets stay withwork (*_WITHWORK) even though the character name is マル之進.
 
 _metadata:
   major_version: 2
 
 display_information:
-  name: withworkコロ助
+  name: マル之進
   description: withwork サポートの自動返信ボット。メンションとチャンネルメッセージを Grok Bot へ渡す。
 
 features:
   bot_user:
-    display_name: kolosuke
+    display_name: marunoshin
 
 oauth_config:
   scopes:
@@ -30,4 +31,3 @@ oauth_config:
 settings:
   org_deploy_enabled: false
   socket_mode_enabled: false
-  # event_subscriptions added after Worker deploy (Request URL required by Slack API)
