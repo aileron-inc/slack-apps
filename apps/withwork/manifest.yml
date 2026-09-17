@@ -1,0 +1,36 @@
+# Slack app manifest (schema v2) for コロ助 / withworkコロ助
+# Docs: https://docs.slack.dev/reference/app-manifest
+#
+# event_subscriptions.request_url is intentionally omitted.
+# Set it in Slack App settings AFTER slack-support-bypass is deployed:
+#   https://<bypass-worker>/slack/withwork
+# Do not invent a workers.dev hostname in this file.
+
+_metadata:
+  major_version: 2
+
+display_information:
+  name: withworkコロ助
+  description: withwork サポートの自動返信ボット。メンションとチャンネルメッセージを Grok Bot へ渡す。
+
+features:
+  bot_user:
+    display_name: コロ助
+  # slash_commands: none for v1
+
+oauth_config:
+  scopes:
+    bot:
+      - chat:write
+      - app_mentions:read
+      - channels:history
+      - groups:history
+
+settings:
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  event_subscriptions:
+    bot_events:
+      - app_mention
+      - message.channels
+      - message.groups
