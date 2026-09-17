@@ -1,0 +1,16 @@
+# Secrets and operator config — never commit these
+*.env
+.env.*
+secrets/
+.dev.vars
+*token*
+*secret*
+
+# Local editor / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Agent scratch (not part of this repo)
+agent-tools/
