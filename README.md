@@ -16,7 +16,7 @@ apps/<slug>/manifest.yml   # Slack app manifest (schema v2)
 apps/<slug>/README.md      # そのアプリのインストール手順
 ```
 
-いま管理しているアプリは `apps/withwork`（コロ助 / XTalent）だけ。
+いま管理しているアプリは `apps/withwork`（コロ助 / XTalent）と `apps/cajon`（カクノシン / Cajon,Inc.）。
 
 ## 境界
 
@@ -75,7 +75,7 @@ Create from manifest の時点で Slack UI が Request URL を要求した場合
 
 ## Cajon 既存アプリ（ここではまだ管理しない）
 
-次は Cajon Slack (`T9U503RME`) で稼働中。このリポジトリでは再作成しない。移行するまで Cajon 側が正。
+次の3つは Cajon Slack (`T9U503RME`) で稼働中。このリポジトリでは再作成しない。移行するまで Cajon 側が正。カクノシン（`apps/cajon`）はこの限りではない。
 
 | アプリ | bypass path |
 | --- | --- |
