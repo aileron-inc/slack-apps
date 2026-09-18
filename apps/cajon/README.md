@@ -19,7 +19,9 @@ Cajon,Inc. Slack 向け。開発・広告まわりの未対応と要対応をま
 5. Install to Workspace
 6. Signing Secret をホームディレクトリの secrets へコピーする（下表）
 7. `~/.slack-support-bypass/routes.json` に cajon 行を足す（このリポジトリには置かない）
-8. 対象チャンネルに カクノシン を invite する
+8. 対象チャンネルに カクノシン を入れる
+
+`channels:join` は公開チャンネルのみ。プライベートチャンネル（例: `#dev_hairbook_dept`, `#広告運用チーム`）はワークスペースメンバーが `/invite @kakunoshin` する。
 
 Bot Token (`xoxb-...`) は Grok Bot 側のみ。git に入れない。
 

@@ -27,6 +27,7 @@ oauth_config:
       - app_mentions:read
       - channels:history
       - groups:history
+      - channels:join
 
 settings:
   org_deploy_enabled: false
