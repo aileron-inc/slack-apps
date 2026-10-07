@@ -6,9 +6,12 @@ This repository is **Slack App manifests and operator docs only**.
 
 - Add or update `apps/<slug>/manifest.yml` (Slack app manifest, schema v2).
 - Document create / install / secret-placement steps next to that manifest.
-- Keep scopes and bot events aligned with [aileron-inc/slack-support-bypass](https://github.com/aileron-inc/slack-support-bypass):
+- Manage only the keep-active apps as manifests: `apps/sae` (`A0BUXNTB43U`, `/slack/hairbook`), `apps/tsumugi` (`A0BUXEUUPM0`, `/slack/salonjobs`), `apps/hinata` (`A0BUXV96DM0`, `/slack/synsalon`), `apps/withwork` (`A0C2DNVFPK8`, `/slack/withwork`). The authoritative Your Apps inventory is `APPS.md`.
+- Keep the bypass minimum scopes and bot events aligned with [aileron-inc/slack-support-bypass](https://github.com/aileron-inc/slack-support-bypass):
   - bot scopes: `chat:write`, `app_mentions:read`, `channels:history`, `groups:history`
   - bot events: `app_mention`, `message.channels`, `message.groups`
+- An installed app may already have extra scopes (see `apps/tsumugi`). Keep those when the committed manifest mirrors a live export, and document them. Dropping them on re-apply removes permissions. Adding new scopes still needs a reason in the app README.
+- `apps/akari` is a retired archive (App `A0BJYNERNG6`, Socket Mode, successor Sae `A0BUXNTB43U`). The legacy file is `manifest.legacy.yml` on purpose. There is no install `manifest.yml`.
 
 ## Do not
 
@@ -16,9 +19,11 @@ This repository is **Slack App manifests and operator docs only**.
 - Do not add Grok Bot reply logic, prompts, or webhook handlers.
 - Do not commit secrets, tokens, signing secrets, `.env`, `.dev.vars`, or anything matching `*token*` / `*secret*`.
 - Do not put `routes.json` here. Operator routes live at `~/.slack-support-bypass/routes.json` (see the bypass repo). This repo must not become a second copy.
-- Do not invent a `workers.dev` hostname for `event_subscriptions.request_url`. Leave it unset until the bypass Worker is deployed, then set Request URL in Slack App settings.
+- Do not invent a `workers.dev` hostname for `event_subscriptions.request_url`. Leave it unset until the bypass Worker is deployed, then set Request URL in Slack App settings. Document the path only (`/slack/withwork`, `/slack/hairbook`, `/slack/salonjobs`, `/slack/synsalon`).
 - Do not call Slack APIs to create or install apps unless a human explicitly asks.
 - Do not modify `aileron-inc/slack-support-bypass` from this repo's work unless that is a separate, explicit task.
+- Do not paste `apps/akari/manifest.legacy.yml` into Slack, and do not turn Socket Mode on as the Events path.
+- Do not recreate apps marked keep-elsewhere, personal/demo, dormant, or retire-candidate in `APPS.md`. Do not add manifests for 質問ちゃん or カク之進 unless a human asks. Do not copy the non-git hub at `~/Projects/slack-apps` (icons, secrets symlink, routes) into this repo.
 
 ## Secrets stay off git
 

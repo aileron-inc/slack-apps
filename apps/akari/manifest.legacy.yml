@@ -1,0 +1,35 @@
+# ARCHIVED legacy manifest for 月島灯 (App A0BJYNERNG6).
+# Status: retired. Successor is Sae (A0BUXNTB43U), Events API path /slack/hairbook.
+#
+# This file records the Socket Mode app as it was exported. socket_mode_enabled
+# is true because that is the legacy configuration, not the path to install.
+# Do not paste this file into Create New App or the App Manifest editor.
+# Do not turn Socket Mode back on. See apps/akari/README.md.
+
+display_information:
+  name: "月島 灯｜Hairbookサポート"
+  description: "月島 灯（つきしま あかり）です。Hairbookサポートの一次確認と、次に必要なことの整理を担当します。"
+  background_color: "#161A2E"
+features:
+  bot_user:
+    display_name: "akari"
+    always_online: false
+oauth_config:
+  scopes:
+    bot:
+      - canvases:write
+      - channels:history
+      - channels:join
+      - channels:read
+      - chat:write
+      - groups:history
+      - groups:read
+      - users:read
+settings:
+  event_subscriptions:
+    bot_events:
+      - message.channels
+      - message.groups
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false
