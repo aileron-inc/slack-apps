@@ -4,7 +4,7 @@ Cajon,Inc. の Hairbook サポート（Events API）。返信ロジックは Gro
 
 Your Apps の表示名は「さえ｜Hairbookサポート」。ローカルハブの見出しは "Sae" だった。マニフェストの `display_information.name` は Your Apps に合わせる。
 
-月島灯（`A0BJYNERNG6`、Socket Mode）の後継。廃止手順は [`apps/akari`](../akari/README.md)。同ワークスペースの英語名 Hairbook Support（`A0BUVGCE47Q`）は削除候補で、このディレクトリの対象ではない。
+月島灯（`A0BJYNERNG6`、Socket Mode）の後継。その Slack アプリと、英語名 Hairbook Support（`A0BUVGCE47Q`）は 2026-10-07（JST）に削除済み。記録は [`apps/akari`](../akari/README.md)。このディレクトリの対象は `A0BUXNTB43U`。
 
 | 項目 | 値 |
 | --- | --- |

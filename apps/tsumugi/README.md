@@ -19,9 +19,9 @@ Your Apps に同じ表示名が複数ある。このディレクトリが追う�
 
 | App ID | Your Apps の名前 | 扱い |
 | --- | --- | --- |
-| `A0BUXEUUPM0` | 森崎 紬｜サロンジョブズ | keep-active。bypass path `/slack/salonjobs` |
-| `A0BUGFXQNDD` | 森崎 紬｜サロンジョブズ | 同名の別アプリ。削除候補。Event URL は未確認（Slack API は呼んでいない） |
-| `A0BUR8478TV` | 森崎 紬｜サロンジョブズ (local) | local の重複。削除候補 |
+| `A0BUXEUUPM0` | 森崎 紬｜サロンジョブズ | keep-active。bypass path `/slack/salonjobs`。2026-10-07 の削除対象ではない |
+| `A0BUGFXQNDD` | 森崎 紬｜サロンジョブズ | 同名の別アプリ。2026-10-07（JST）に削除済み |
+| `A0BUR8478TV` | 森崎 紬｜サロンジョブズ (local) | local の重複。2026-10-07（JST）に削除済み |
 
 [`manifest.yml`](./manifest.yml) はローカルハブ（`~/Projects/slack-apps`、git ではない）の export が元。yaml と json の内容は一致していた。コミット時に外したものは `event_subscriptions.request_url` だけ（export には `workers.dev` のホストが入っていた）。どの App ID の export かはファイルに書いていない。Your Apps の分類では本番は `A0BUXEUUPM0`。
 

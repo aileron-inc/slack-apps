@@ -4,9 +4,8 @@
 # Notes:
 # - Live production app A0BUXEUUPM0 on Cajon,Inc. (team T9U503RME).
 #   Bot display name: tsumugi.
-# - Do not point this file at the same-name apps A0BUGFXQNDD or
-#   A0BUR8478TV (local). Those are retire candidates. Event request URLs
-#   for the duplicates were not read (no Slack API call).
+# - Same-name apps A0BUGFXQNDD and A0BUR8478TV (local) were deleted
+#   2026-10-07 JST. This file tracks A0BUXEUUPM0 only.
 # - Body follows the local-hub export (yaml and json matched), with two edits:
 #   1. _metadata.major_version: 2 added so this file is schema v2.
 #   2. event_subscriptions.request_url removed. The export embedded a workers.dev

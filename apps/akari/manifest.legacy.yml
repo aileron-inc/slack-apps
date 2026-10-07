@@ -1,5 +1,6 @@
 # ARCHIVED legacy manifest for 月島灯 (App A0BJYNERNG6).
-# Status: retired. Successor is Sae (A0BUXNTB43U), Events API path /slack/hairbook.
+# Status: retired. The Slack app was deleted 2026-10-07 JST.
+# Successor is Sae (A0BUXNTB43U), Events API path /slack/hairbook.
 #
 # This file records the Socket Mode app as it was exported. socket_mode_enabled
 # is true because that is the legacy configuration, not the path to install.
