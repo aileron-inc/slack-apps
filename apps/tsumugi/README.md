@@ -7,15 +7,23 @@ Cajon Slack のサロンジョブズサポート（Events API）。返信ロジ�
 | 表示名 | 森崎 紬｜サロンジョブズ |
 | bot `display_name` | `tsumugi` |
 | slug | `tsumugi` |
-| App ID | `A0BUXEUUPM0`（ローカルハブ README の一覧。export ファイル自体には無い） |
+| App ID | `A0BUXEUUPM0`（Your Apps の本番。export ファイル自体には App ID が無い） |
 | 設定 | https://api.slack.com/apps/A0BUXEUUPM0 |
-| Slack team | Cajon / `T9U503RME` |
-| ステータス | active |
+| Slack team | Cajon,Inc. / `T9U503RME` |
+| ステータス | keep-active |
 | Event Subscriptions path | `/slack/salonjobs` |
 | Request URL | `https://<bypass-worker>/slack/salonjobs`（Worker デプロイ後に設定。hostname はここに書かない） |
 | 台帳 | [APPS.md](../../APPS.md) |
 
-[`manifest.yml`](./manifest.yml) はローカルハブ（`~/Projects/slack-apps`、git ではない）の export が元。yaml と json の内容は一致していた。コミット時に外したものは `event_subscriptions.request_url` だけ（export には `workers.dev` のホストが入っていた）。
+Your Apps に同じ表示名が複数ある。このディレクトリが追うのは本番の `A0BUXEUUPM0` だけ。
+
+| App ID | Your Apps の名前 | 扱い |
+| --- | --- | --- |
+| `A0BUXEUUPM0` | 森崎 紬｜サロンジョブズ | keep-active。bypass path `/slack/salonjobs` |
+| `A0BUGFXQNDD` | 森崎 紬｜サロンジョブズ | 同名の別アプリ。削除候補。Event URL は未確認（Slack API は呼んでいない） |
+| `A0BUR8478TV` | 森崎 紬｜サロンジョブズ (local) | local の重複。削除候補 |
+
+[`manifest.yml`](./manifest.yml) はローカルハブ（`~/Projects/slack-apps`、git ではない）の export が元。yaml と json の内容は一致していた。コミット時に外したものは `event_subscriptions.request_url` だけ（export には `workers.dev` のホストが入っていた）。どの App ID の export かはファイルに書いていない。Your Apps の分類では本番は `A0BUXEUUPM0`。
 
 ## スコープ
 

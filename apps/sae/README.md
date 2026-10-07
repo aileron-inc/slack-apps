@@ -1,18 +1,20 @@
-# Sae｜Hairbookサポート
+# さえ｜Hairbookサポート
 
-Cajon Slack の Hairbook サポート（Events API）。返信ロジックは Grok Bot。このディレクトリは Slack App マニフェストとインストール手順だけ。
+Cajon,Inc. の Hairbook サポート（Events API）。返信ロジックは Grok Bot。このディレクトリは Slack App マニフェストとインストール手順だけ。
 
-月島灯（`A0BJYNERNG6`、Socket Mode）の後継。廃止手順は [`apps/akari`](../akari/README.md)。
+Your Apps の表示名は「さえ｜Hairbookサポート」。ローカルハブの見出しは "Sae" だった。マニフェストの `display_information.name` は Your Apps に合わせる。
+
+月島灯（`A0BJYNERNG6`、Socket Mode）の後継。廃止手順は [`apps/akari`](../akari/README.md)。同ワークスペースの英語名 Hairbook Support（`A0BUVGCE47Q`）は削除候補で、このディレクトリの対象ではない。
 
 | 項目 | 値 |
 | --- | --- |
-| 表示名 | Sae｜Hairbookサポート |
+| 表示名 | さえ｜Hairbookサポート |
 | bot `display_name` / @mention | `hairbook_support` |
 | slug | `sae` |
 | App ID | `A0BUXNTB43U` |
 | 設定 | https://api.slack.com/apps/A0BUXNTB43U |
-| Slack team | Cajon / `T9U503RME` |
-| ステータス | active |
+| Slack team | Cajon,Inc. / `T9U503RME` |
+| ステータス | keep-active |
 | Event Subscriptions path | `/slack/hairbook` |
 | Request URL | `https://<bypass-worker>/slack/hairbook`（Worker デプロイ後に設定。hostname はここに書かない） |
 | 台帳 | [APPS.md](../../APPS.md) |

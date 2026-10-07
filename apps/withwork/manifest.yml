@@ -1,10 +1,12 @@
 # Slack app manifest (schema v2) for マル之進 (withwork support auto-reply)
 # Docs: https://docs.slack.dev/reference/app-manifest
 #
-# Notes (2026-09-17):
-# - App display name: マル之進
+# Notes:
+# - Live Event bot on XTalent: マル之進 (マルノシン), App A0C2DNVFPK8.
 # - features.bot_user.display_name is ASCII only for apps.manifest.* → `marunoshin`
 #   (@mention is @marunoshin). If Slack UI allows a Japanese bot display name, set マル之進 there.
+# - withworkコロ助 A0C20A95WR5 is the legacy display name. withwork-bot A041U5XSVQQ
+#   is the older bot. This file tracks A0C2DNVFPK8 only.
 # - event_subscriptions.request_url is set AFTER aileron-inc/slack-support-bypass is deployed:
 #   https://<bypass-worker>/slack/withwork
 # - Route/secrets stay withwork (*_WITHWORK) even though the character name is マル之進.

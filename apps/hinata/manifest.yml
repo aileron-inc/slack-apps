@@ -1,10 +1,12 @@
-# Slack app manifest (schema v2) for 日向 (synsalon page support)
+# Slack app manifest (schema v2) for 日向 ひなた (synsalon page support)
 # Docs: https://docs.slack.dev/reference/app-manifest
 #
 # Notes:
-# - Local hub README had no App ID and no manifest. This file is a draft aligned
-#   with aileron-inc/slack-support-bypass (minimum scopes and events).
-# - Reply implementation stays in cajon-inc/hairbook-runbook-bot. Do not migrate that code.
+# - Live app A0BUXV96DM0 on Cajon,Inc. Your Apps name: 日向 ひなた｜シンサロンページ.
+#   The local hub README had no App ID. Scopes here are the bypass minimum
+#   because no live export was available. Diff before re-applying.
+# - A local note pointed at cajon-inc/hairbook-runbook-bot for reply code.
+#   Do not migrate that code. The Slack app row is A0BUXV96DM0.
 # - event_subscriptions.request_url is unset. Path is /slack/synsalon.
 #   Set https://<bypass-worker>/slack/synsalon in Slack App settings.
 # - Socket Mode stays off.
@@ -13,7 +15,7 @@ _metadata:
   major_version: 2
 
 display_information:
-  name: 日向
+  name: 日向 ひなた｜シンサロンページ
   description: シンサロンページのサポート。メンションとチャンネルメッセージを bypass 経由で渡す。
 
 features:

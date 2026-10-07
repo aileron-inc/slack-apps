@@ -6,7 +6,7 @@ This repository is **Slack App manifests and operator docs only**.
 
 - Add or update `apps/<slug>/manifest.yml` (Slack app manifest, schema v2).
 - Document create / install / secret-placement steps next to that manifest.
-- Manage Cajon support apps here as manifests: `apps/sae` (`/slack/hairbook`), `apps/tsumugi` (`/slack/salonjobs`), `apps/hinata` (`/slack/synsalon`), plus XTalent `apps/withwork` (`/slack/withwork`). Inventory of related apps, non-Slack-app repos, and duplicate local clones lives in `APPS.md`.
+- Manage only the keep-active apps as manifests: `apps/sae` (`A0BUXNTB43U`, `/slack/hairbook`), `apps/tsumugi` (`A0BUXEUUPM0`, `/slack/salonjobs`), `apps/hinata` (`A0BUXV96DM0`, `/slack/synsalon`), `apps/withwork` (`A0C2DNVFPK8`, `/slack/withwork`). The authoritative Your Apps inventory is `APPS.md`.
 - Keep the bypass minimum scopes and bot events aligned with [aileron-inc/slack-support-bypass](https://github.com/aileron-inc/slack-support-bypass):
   - bot scopes: `chat:write`, `app_mentions:read`, `channels:history`, `groups:history`
   - bot events: `app_mention`, `message.channels`, `message.groups`
@@ -23,7 +23,7 @@ This repository is **Slack App manifests and operator docs only**.
 - Do not call Slack APIs to create or install apps unless a human explicitly asks.
 - Do not modify `aileron-inc/slack-support-bypass` from this repo's work unless that is a separate, explicit task.
 - Do not paste `apps/akari/manifest.legacy.yml` into Slack, and do not turn Socket Mode on as the Events path.
-- Do not migrate code from the non-Slack-app repos listed in `APPS.md`, and do not copy the non-git hub at `~/Projects/slack-apps` (icons, secrets symlink, routes) into this repo.
+- Do not recreate apps marked keep-elsewhere, personal/demo, dormant, or retire-candidate in `APPS.md`. Do not add manifests for 質問ちゃん or カク之進 unless a human asks. Do not copy the non-git hub at `~/Projects/slack-apps` (icons, secrets symlink, routes) into this repo.
 
 ## Secrets stay off git
 

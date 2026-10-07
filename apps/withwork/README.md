@@ -5,12 +5,26 @@ XTalent Slack 向けのサポート自動返信ボット（Events API の受信�
 | 項目 | 値 |
 | --- | --- |
 | 表示名 | マル之進 |
+| Your Apps の表記 | マル之進 (マルノシン) |
 | bot `display_name` | `marunoshin` |
 | slug | `withwork` |
+| App ID | `A0C2DNVFPK8` |
+| 設定 | https://api.slack.com/apps/A0C2DNVFPK8 |
 | Slack team | XTalent / `TMGCWC4TY` |
+| ステータス | keep-active |
 | Event Subscriptions path | `/slack/withwork` |
 | Request URL | `https://<bypass-worker>/slack/withwork`（Worker デプロイ後に設定。hostname はここに書かない） |
 | 台帳 | [APPS.md](../../APPS.md) |
+
+ライブの Event bot は `A0C2DNVFPK8`。マニフェストの表示名は マル之進のまま（コロ助には戻さない）。
+
+| App ID | Your Apps の名前 | 扱い |
+| --- | --- | --- |
+| `A0C2DNVFPK8` | マル之進 (マルノシン) | keep-active。path `/slack/withwork` |
+| `A0C20A95WR5` | withworkコロ助 | 旧表示名の重複。削除候補 |
+| `A041U5XSVQQ` | withwork-bot | より古い withwork bot。置き換え済みとみて削除候補 |
+
+Event URL の実値は、この環境では Slack API を呼んで確認していない。
 
 ## インストール
 

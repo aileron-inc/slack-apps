@@ -2,8 +2,11 @@
 # Docs: https://docs.slack.dev/reference/app-manifest
 #
 # Notes:
-# - Live app A0BUXNTB43U on Cajon (T9U503RME).
+# - Live app A0BUXNTB43U on Cajon,Inc. (team T9U503RME).
+#   Your Apps name: さえ｜Hairbookサポート.
 #   2026-09-17 auth.test: bot user hairbook_support (@hairbook_support).
+# - Same workspace also has Hairbook Support A0BUVGCE47Q (retire candidate)
+#   and retired 月島灯 A0BJYNERNG6. This file is only A0BUXNTB43U.
 # - The local hub had a README only. Scopes and events are the bypass minimum
 #   (aileron-inc/slack-support-bypass). The notes do not list wider scopes.
 # - event_subscriptions.request_url is unset. After the bypass Worker is deployed,
@@ -14,7 +17,7 @@ _metadata:
   major_version: 2
 
 display_information:
-  name: Sae｜Hairbookサポート
+  name: さえ｜Hairbookサポート
   description: Hairbook サポートの一次案内。メンションとチャンネルメッセージを bypass 経由で渡す。
 
 features:

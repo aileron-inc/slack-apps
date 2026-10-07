@@ -1,18 +1,20 @@
-# 日向｜シンサロンページ
+# 日向 ひなた｜シンサロンページ
 
-Cajon Slack のシンサロンページサポート（Events API）。返信ロジックの正本は `cajon-inc/hairbook-runbook-bot` 系。コードは移さない。このディレクトリは Slack App マニフェストとインストール手順だけ。
+Cajon,Inc. のシンサロンページサポート（Events API）。このディレクトリは Slack App マニフェストとインストール手順だけ。
+
+Your Apps のアプリ名は「日向 ひなた｜シンサロンページ」、App ID は `A0BUXV96DM0`。ローカルハブに App ID は無く、返信実装を `cajon-inc/hairbook-runbook-bot` 系と書いていた。そのリポジトリは Your Apps の行には無い。コードは移さない。
 
 | 項目 | 値 |
 | --- | --- |
-| 表示名 | 日向 |
-| bot `display_name` | `hinata` |
+| 表示名 | 日向 ひなた｜シンサロンページ |
+| bot `display_name` | `hinata`（Your Apps はアプリ名のみ。ライブの @mention は未確認） |
 | slug | `hinata` |
-| App ID | 未確認（ローカルハブのメモに無い） |
-| Slack team | Cajon / `T9U503RME` |
-| ステータス | active（マニフェストの管理対象。App ID は未確認） |
+| App ID | `A0BUXV96DM0` |
+| 設定 | https://api.slack.com/apps/A0BUXV96DM0 |
+| Slack team | Cajon,Inc. / `T9U503RME` |
+| ステータス | keep-active |
 | Event Subscriptions path | `/slack/synsalon` |
 | Request URL | `https://<bypass-worker>/slack/synsalon`（Worker デプロイ後に設定。hostname はここに書かない） |
-| 正本ボット | `cajon-inc/hairbook-runbook-bot` 系（keep-on-cajon） |
 | 台帳 | [APPS.md](../../APPS.md) |
 
 ローカルハブのメモはトークンキー `SLACK_BOT_TOKEN_HINATA` と、secrets の場所 `~/Projects/slack-apps/secrets` だけ。追加スコープの記載は無い。[`manifest.yml`](./manifest.yml) は bypass の最小に合わせた。
@@ -22,7 +24,7 @@ Cajon Slack のシンサロンページサポート（Events API）。返信ロ�
 
 ## 既存アプリへ再適用する前
 
-App ID が分かるまで、稼働中のアプリへこのファイルを貼らない。貼ると、画面側にある余分なスコープが落ち、Request URL も外れる。先に App Manifest 画面と diff する。
+対象は `A0BUXV96DM0`。ライブの manifest export は手元に無い。再適用すると、画面側の余分なスコープが落ち、Request URL も外れる。App Manifest 画面と diff してから貼る。
 
 新規作成で Slack UI が Request URL を要求したら、空のまま進める。無理なら Worker デプロイ後に同じマニフェストを再適用する。
 
@@ -35,7 +37,7 @@ App ID が分かるまで、稼働中のアプリへこのファイルを貼ら�
 5. Install to Workspace
 6. Signing Secret をホームディレクトリの secrets へコピーする（下表）
 7. `~/.slack-support-bypass/routes.json` に synsalon 行を足す（このリポジトリには置かない）
-8. 対象チャンネルに `@hinata` を invite する
+8. 対象チャンネルに 日向を invite する。manifest の bot `display_name` は `hinata`。ライブの @mention は Your Apps に無い
 
 Bot Token (`xoxb-...`) は Grok Bot 側のみ。git に入れない。
 

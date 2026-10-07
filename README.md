@@ -18,7 +18,7 @@ apps/<slug>/README.md      # そのアプリのインストール手順
 apps/akari/manifest.legacy.yml  # 月島灯の Socket Mode 記録。貼らない
 ```
 
-台帳は [APPS.md](./APPS.md)。マニフェストを置いているアプリは `apps/withwork`（マル之進 / XTalent）と、Cajon の `apps/sae`、`apps/tsumugi`、`apps/hinata`。`apps/akari`（月島灯）は廃止記録で、Socket Mode の legacy manifest だけを残す。
+台帳は [APPS.md](./APPS.md)。正はオーナーが貼った Your Apps 一覧。マニフェストを置くのは keep-active の 4 つ。`apps/withwork`（マル之進 `A0C2DNVFPK8` / XTalent）、Cajon,Inc. の `apps/sae`（さえ `A0BUXNTB43U`）、`apps/tsumugi`（`A0BUXEUUPM0`）、`apps/hinata`（`A0BUXV96DM0`）。`apps/akari`（月島灯 `A0BJYNERNG6`）は retired で、Socket Mode の legacy manifest だけを残す。同名の重複やプロダクトアプリは台帳に記録し、ここでは作り直さない。
 
 ## 境界
 
@@ -63,12 +63,12 @@ Slack の App Manifest API は呼ばない。UI で作る。
 8. `~/.slack-support-bypass/routes.json` にルート行を足す（shape は bypass リポジトリの `routes.example.json`）
 9. 対象チャンネルに bot を invite する
 
-| slug | path |
-| --- | --- |
-| withwork | `/slack/withwork` |
-| sae | `/slack/hairbook` |
-| tsumugi | `/slack/salonjobs` |
-| hinata | `/slack/synsalon` |
+| slug | App ID | path |
+| --- | --- | --- |
+| withwork | `A0C2DNVFPK8` | `/slack/withwork` |
+| sae | `A0BUXNTB43U` | `/slack/hairbook` |
+| tsumugi | `A0BUXEUUPM0` | `/slack/salonjobs` |
+| hinata | `A0BUXV96DM0` | `/slack/synsalon` |
 
 Bot Token (`xoxb-...`) は Grok Bot 側にだけ置く。このリポジトリにも bypass リポジトリにも置かない。Signing Secret もコミットしない。
 
@@ -86,15 +86,15 @@ Create from manifest の時点で Slack UI が Request URL を要求した場合
 
 ## Cajon のサポートアプリ
 
-Hairbook / サロンジョブズ / シンサロンページは Cajon Slack (`T9U503RME`) にインストールしたまま、マニフェストの正本をこのリポジトリに置く。
+Hairbook / サロンジョブズ / シンサロンページは Cajon,Inc.（team `T9U503RME`）にインストールしたまま、マニフェストの正本をこのリポジトリに置く。
 
-| アプリ | slug | bypass path |
-| --- | --- | --- |
-| Sae｜Hairbookサポート | `sae` | `POST /slack/hairbook` |
-| 森崎 紬｜サロンジョブズ | `tsumugi` | `POST /slack/salonjobs` |
-| 日向 | `hinata` | `POST /slack/synsalon` |
+| アプリ | App ID | slug | bypass path |
+| --- | --- | --- | --- |
+| さえ｜Hairbookサポート | `A0BUXNTB43U` | `sae` | `POST /slack/hairbook` |
+| 森崎 紬｜サロンジョブズ | `A0BUXEUUPM0` | `tsumugi` | `POST /slack/salonjobs` |
+| 日向 ひなた｜シンサロンページ | `A0BUXV96DM0` | `hinata` | `POST /slack/synsalon` |
 
-月島灯（`apps/akari`、App `A0BJYNERNG6`）は retired。受信の後継は Sae。Socket Mode は推奨パスにしない。関連リポジトリとローカルクローンの重複は [APPS.md](./APPS.md)。
+月島灯（`apps/akari`、App `A0BJYNERNG6`）は retired。受信の後継は さえ。Socket Mode は推奨パスにしない。同名の重複、プロダクトアプリ、デモは [APPS.md](./APPS.md)。
 
 ## License
 
