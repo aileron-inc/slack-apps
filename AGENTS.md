@@ -11,7 +11,7 @@ This repository is **Slack App manifests and operator docs only**.
   - bot scopes: `chat:write`, `app_mentions:read`, `channels:history`, `groups:history`
   - bot events: `app_mention`, `message.channels`, `message.groups`
 - An installed app may already have extra scopes (see `apps/tsumugi`). Keep those when the committed manifest mirrors a live export, and document them. Dropping them on re-apply removes permissions. Adding new scopes still needs a reason in the app README.
-- `apps/akari` is a retired archive (App `A0BJYNERNG6`, Socket Mode, successor Sae `A0BUXNTB43U`). The legacy file is `manifest.legacy.yml` on purpose. There is no install `manifest.yml`.
+- `apps/akari` is a retired archive (App `A0BJYNERNG6`, deleted 2026-10-07 JST, successor Sae `A0BUXNTB43U`). The legacy file is `manifest.legacy.yml` on purpose. There is no install `manifest.yml`.
 
 ## Do not
 
@@ -23,7 +23,7 @@ This repository is **Slack App manifests and operator docs only**.
 - Do not call Slack APIs to create or install apps unless a human explicitly asks.
 - Do not modify `aileron-inc/slack-support-bypass` from this repo's work unless that is a separate, explicit task.
 - Do not paste `apps/akari/manifest.legacy.yml` into Slack, and do not turn Socket Mode on as the Events path.
-- Do not recreate apps marked keep-elsewhere, personal/demo, dormant, or retire-candidate in `APPS.md`. Do not add manifests for 質問ちゃん or カク之進 unless a human asks. Do not copy the non-git hub at `~/Projects/slack-apps` (icons, secrets symlink, routes) into this repo.
+- Do not recreate apps in the APPS.md Deleted 2026-10-07 section, or apps marked keep-elsewhere, personal/demo, or dormant. Do not add manifests for 質問ちゃん or カク之進 unless a human asks. Do not copy the non-git hub at `~/Projects/slack-apps` (icons, secrets symlink, routes) into this repo.
 
 ## Secrets stay off git
 

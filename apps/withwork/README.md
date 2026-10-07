@@ -20,9 +20,9 @@ XTalent Slack 向けのサポート自動返信ボット（Events API の受信�
 
 | App ID | Your Apps の名前 | 扱い |
 | --- | --- | --- |
-| `A0C2DNVFPK8` | マル之進 (マルノシン) | keep-active。path `/slack/withwork` |
-| `A0C20A95WR5` | withworkコロ助 | 旧表示名の重複。削除候補 |
-| `A041U5XSVQQ` | withwork-bot | より古い withwork bot。置き換え済みとみて削除候補 |
+| `A0C2DNVFPK8` | マル之進 (マルノシン) | keep-active。path `/slack/withwork`。2026-10-07 の削除対象ではない |
+| `A0C20A95WR5` | withworkコロ助 | 旧表示名。2026-10-07（JST）に削除済み |
+| `A041U5XSVQQ` | withwork-bot | より古い withwork bot。2026-10-07（JST）に削除済み |
 
 Event URL の実値は、この環境では Slack API を呼んで確認していない。
 

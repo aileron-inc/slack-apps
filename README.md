@@ -18,7 +18,7 @@ apps/<slug>/README.md      # そのアプリのインストール手順
 apps/akari/manifest.legacy.yml  # 月島灯の Socket Mode 記録。貼らない
 ```
 
-台帳は [APPS.md](./APPS.md)。正はオーナーが貼った Your Apps 一覧。マニフェストを置くのは keep-active の 4 つ。`apps/withwork`（マル之進 `A0C2DNVFPK8` / XTalent）、Cajon,Inc. の `apps/sae`（さえ `A0BUXNTB43U`）、`apps/tsumugi`（`A0BUXEUUPM0`）、`apps/hinata`（`A0BUXV96DM0`）。`apps/akari`（月島灯 `A0BJYNERNG6`）は retired で、Socket Mode の legacy manifest だけを残す。同名の重複やプロダクトアプリは台帳に記録し、ここでは作り直さない。
+台帳は [APPS.md](./APPS.md)。マニフェストを置くのは keep-active の 4 つ。`apps/withwork`（マル之進 `A0C2DNVFPK8` / XTalent）、Cajon,Inc. の `apps/sae`（さえ `A0BUXNTB43U`）、`apps/tsumugi`（`A0BUXEUUPM0`）、`apps/hinata`（`A0BUXV96DM0`）。この 4 件は 2026-10-07 の削除に入っていない。`apps/akari` は月島灯の Socket Mode 記録。Slack アプリ `A0BJYNERNG6` は 2026-10-07（JST）に削除済み。同日の削除一覧は APPS.md の Deleted 2026-10-07。
 
 ## 境界
 
@@ -94,7 +94,7 @@ Hairbook / サロンジョブズ / シンサロンページは Cajon,Inc.（team
 | 森崎 紬｜サロンジョブズ | `A0BUXEUUPM0` | `tsumugi` | `POST /slack/salonjobs` |
 | 日向 ひなた｜シンサロンページ | `A0BUXV96DM0` | `hinata` | `POST /slack/synsalon` |
 
-月島灯（`apps/akari`、App `A0BJYNERNG6`）は retired。受信の後継は さえ。Socket Mode は推奨パスにしない。同名の重複、プロダクトアプリ、デモは [APPS.md](./APPS.md)。
+月島灯（`apps/akari`、App `A0BJYNERNG6`）の Slack アプリは 2026-10-07（JST）に削除済み。受信の後継は さえ。Socket Mode の記録は残し、推奨パスにはしない。同日に消した重複と Demo App、残しているプロダクトアプリは [APPS.md](./APPS.md)。
 
 ## License
 
