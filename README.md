@@ -12,11 +12,13 @@ Matchy の Slack App 管理リポジトリ。**マニフェストと作成・イ
 ## レイアウト
 
 ```
+APPS.md                    # 関連アプリとローカル重複の台帳
 apps/<slug>/manifest.yml   # Slack app manifest (schema v2)
 apps/<slug>/README.md      # そのアプリのインストール手順
+apps/akari/manifest.legacy.yml  # 月島灯の Socket Mode 記録。貼らない
 ```
 
-いま管理しているアプリは `apps/withwork`（コロ助 / XTalent）だけ。
+台帳は [APPS.md](./APPS.md)。マニフェストを置いているアプリは `apps/withwork`（マル之進 / XTalent）と、Cajon の `apps/sae`、`apps/tsumugi`、`apps/hinata`。`apps/akari`（月島灯）は廃止記録で、Socket Mode の legacy manifest だけを残す。
 
 ## 境界
 
@@ -52,36 +54,47 @@ Bot events:
 Slack の App Manifest API は呼ばない。UI で作る。
 
 1. [Your Apps](https://api.slack.com/apps) → **Create New App** → **From an app manifest**
-2. インストール先ワークスペースを選ぶ（withwork なら XTalent / `TMGCWC4TY`）
-3. `apps/<slug>/manifest.yml` を貼る
-4. 作成後、**Event Subscriptions → Request URL** を設定する。値は `https://<bypass-worker>` + ルート path（例: `/slack/withwork`）。`<bypass-worker>` は bypass Worker をデプロイしたあとの実ホスト。このリポジトリに hostname は書かない
+2. インストール先ワークスペースを選ぶ（withwork は XTalent / `TMGCWC4TY`。sae / tsumugi / hinata は Cajon / `T9U503RME`）
+3. `apps/<slug>/manifest.yml` を貼る。`apps/akari/manifest.legacy.yml` は貼らない
+4. 作成後、**Event Subscriptions → Request URL** を設定する。値は `https://<bypass-worker>` + 下表の path。`<bypass-worker>` は bypass Worker をデプロイしたあとの実ホスト。このリポジトリに hostname は書かない
 5. **Install to Workspace**（権限の再承認が必要なら再インストール）
 6. Basic Information の **Signing Secret** を `~/.slack-support-bypass/secrets.env` に入れる
 7. 同じ `secrets.env` に Grok webhook URL / key を入れる（キー名は各 `apps/<slug>/README.md`）
 8. `~/.slack-support-bypass/routes.json` にルート行を足す（shape は bypass リポジトリの `routes.example.json`）
 9. 対象チャンネルに bot を invite する
 
+| slug | path |
+| --- | --- |
+| withwork | `/slack/withwork` |
+| sae | `/slack/hairbook` |
+| tsumugi | `/slack/salonjobs` |
+| hinata | `/slack/synsalon` |
+
 Bot Token (`xoxb-...`) は Grok Bot 側にだけ置く。このリポジトリにも bypass リポジトリにも置かない。Signing Secret もコミットしない。
 
 ### Request URL は後から
 
-`event_subscriptions.request_url` はマニフェストに入れていない。公式 schema では任意だが、Events API を有効にするには Request URL か Socket Mode のどちらかが必要。Socket Mode は使わない。bypass Worker の hostname をここに発明しない。Worker デプロイ後に Slack App 設定で入れる。
+`event_subscriptions.request_url` はマニフェストに入れていない。公式 schema では任意だが、Events API を有効にするには Request URL か Socket Mode のどちらかが必要。受信は Events API の Request URL。bypass Worker の hostname をここに発明しない。Worker デプロイ後に Slack App 設定で入れる。
+
+withwork の `manifest.yml` はイベント購読ブロック自体を置いていない。sae / tsumugi / hinata は `bot_events` だけ書き、`request_url` は空のまま。
 
 Create from manifest の時点で Slack UI が Request URL を要求した場合は、いったん空のまま先に進められるなら進め、無理なら Worker デプロイ後に同じマニフェストを App Manifest エディタへ再適用する。
 
 ### `features.bot_user.display_name`
 
-公式の [App manifest reference](https://docs.slack.dev/reference/app-manifest) は `bot_user.display_name` の許可文字を `a-z`, `0-9`, `-`, `_`, `.` と書いている。日本語表示名（コロ助）は UI では普通に使われる。マニフェスト投入で弾かれたら `display_information.name` は日本語のまま、`bot_user.display_name` だけ `kolosuke` に落とす。未確認: App Settings のバリデーションがドキュメントどおり ASCII 限定かどうか。
+公式の [App manifest reference](https://docs.slack.dev/reference/app-manifest) は `bot_user.display_name` の許可文字を `a-z`, `0-9`, `-`, `_`, `.` と書いている（reference を 2026-10-07 に確認）。`display_information.name` は日本語でよい。withwork の bot 名は `marunoshin`、表示名は マル之進。App Settings の画面がドキュメントより広く日本語の bot 名を許すかは、Slack API を呼んでいないので未確認。
 
-## Cajon 既存アプリ（ここではまだ管理しない）
+## Cajon のサポートアプリ
 
-次は Cajon Slack (`T9U503RME`) で稼働中。このリポジトリでは再作成しない。移行するまで Cajon 側が正。
+Hairbook / サロンジョブズ / シンサロンページは Cajon Slack (`T9U503RME`) にインストールしたまま、マニフェストの正本をこのリポジトリに置く。
 
-| アプリ | bypass path |
-| --- | --- |
-| Hairbookサポート | `POST /slack/hairbook` |
-| サロンジョブズサポート | `POST /slack/salonjobs` |
-| シンサロンページサポート | `POST /slack/synsalon` |
+| アプリ | slug | bypass path |
+| --- | --- | --- |
+| Sae｜Hairbookサポート | `sae` | `POST /slack/hairbook` |
+| 森崎 紬｜サロンジョブズ | `tsumugi` | `POST /slack/salonjobs` |
+| 日向 | `hinata` | `POST /slack/synsalon` |
+
+月島灯（`apps/akari`、App `A0BJYNERNG6`）は retired。受信の後継は Sae。Socket Mode は推奨パスにしない。関連リポジトリとローカルクローンの重複は [APPS.md](./APPS.md)。
 
 ## License
 

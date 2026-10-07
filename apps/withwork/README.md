@@ -1,14 +1,16 @@
-# withwork コロ助
+# withwork マル之進
 
 XTalent Slack 向けのサポート自動返信ボット（Events API の受信側）。返信ロジックは Grok Bot。このディレクトリは Slack App マニフェストとインストール手順だけ。
 
 | 項目 | 値 |
 | --- | --- |
-| 表示名 | コロ助 / withworkコロ助 |
+| 表示名 | マル之進 |
+| bot `display_name` | `marunoshin` |
 | slug | `withwork` |
 | Slack team | XTalent / `TMGCWC4TY` |
 | Event Subscriptions path | `/slack/withwork` |
 | Request URL | `https://<bypass-worker>/slack/withwork`（Worker デプロイ後に設定。hostname はここに書かない） |
+| 台帳 | [APPS.md](../../APPS.md) |
 
 ## インストール
 
@@ -19,7 +21,7 @@ XTalent Slack 向けのサポート自動返信ボット（Events API の受信�
 5. Install to Workspace
 6. Signing Secret をホームディレクトリの secrets へコピーする（下表）
 7. `~/.slack-support-bypass/routes.json` に withwork 行を足す（このリポジトリには置かない）
-8. 対象チャンネルに コロ助 を invite する
+8. 対象チャンネルに マル之進（`@marunoshin`）を invite する
 
 Bot Token (`xoxb-...`) は Grok Bot 側のみ。git に入れない。
 

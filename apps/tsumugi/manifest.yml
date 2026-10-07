@@ -1,0 +1,50 @@
+# Slack app manifest (schema v2) for 森崎 紬 (salonjobs support)
+# Docs: https://docs.slack.dev/reference/app-manifest
+#
+# Notes:
+# - Live app A0BUXEUUPM0 on Cajon (T9U503RME). Bot display name: tsumugi.
+# - Body follows the local-hub export (yaml and json matched), with two edits:
+#   1. _metadata.major_version: 2 added so this file is schema v2.
+#   2. event_subscriptions.request_url removed. The export embedded a workers.dev
+#      host. Do not commit that host. Path is /slack/salonjobs.
+#      Set https://<bypass-worker>/slack/salonjobs in Slack App settings.
+# - Scopes wider than the bypass minimum are kept so a re-apply does not drop
+#   permissions already on the installed app. See README for the split.
+# - Socket Mode stays off.
+
+_metadata:
+  major_version: 2
+
+display_information:
+  name: 森崎 紬｜サロンジョブズ
+  description: 求人ページ（salonjobs）の調査・修正・公開確認を担当します。
+  background_color: "#1C1917"
+
+features:
+  bot_user:
+    display_name: tsumugi
+    always_online: true
+
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - channels:history
+      - channels:join
+      - channels:read
+      - chat:write
+      - files:read
+      - groups:history
+      - groups:read
+      - reactions:write
+      - users:read
+
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_mention
+      - message.channels
+      - message.groups
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false

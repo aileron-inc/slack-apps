@@ -1,0 +1,39 @@
+# Slack app manifest (schema v2) for 日向 (synsalon page support)
+# Docs: https://docs.slack.dev/reference/app-manifest
+#
+# Notes:
+# - Local hub README had no App ID and no manifest. This file is a draft aligned
+#   with aileron-inc/slack-support-bypass (minimum scopes and events).
+# - Reply implementation stays in cajon-inc/hairbook-runbook-bot. Do not migrate that code.
+# - event_subscriptions.request_url is unset. Path is /slack/synsalon.
+#   Set https://<bypass-worker>/slack/synsalon in Slack App settings.
+# - Socket Mode stays off.
+
+_metadata:
+  major_version: 2
+
+display_information:
+  name: 日向
+  description: シンサロンページのサポート。メンションとチャンネルメッセージを bypass 経由で渡す。
+
+features:
+  bot_user:
+    display_name: hinata
+
+oauth_config:
+  scopes:
+    bot:
+      - chat:write
+      - app_mentions:read
+      - channels:history
+      - groups:history
+
+settings:
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
+  event_subscriptions:
+    bot_events:
+      - app_mention
+      - message.channels
+      - message.groups

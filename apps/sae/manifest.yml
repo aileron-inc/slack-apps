@@ -1,0 +1,40 @@
+# Slack app manifest (schema v2) for Sae (Hairbook support)
+# Docs: https://docs.slack.dev/reference/app-manifest
+#
+# Notes:
+# - Live app A0BUXNTB43U on Cajon (T9U503RME).
+#   2026-09-17 auth.test: bot user hairbook_support (@hairbook_support).
+# - The local hub had a README only. Scopes and events are the bypass minimum
+#   (aileron-inc/slack-support-bypass). The notes do not list wider scopes.
+# - event_subscriptions.request_url is unset. After the bypass Worker is deployed,
+#   set Request URL in Slack App settings to https://<bypass-worker>/slack/hairbook.
+# - Socket Mode stays off. Predecessor 月島灯 (A0BJYNERNG6) is retired under apps/akari.
+
+_metadata:
+  major_version: 2
+
+display_information:
+  name: Sae｜Hairbookサポート
+  description: Hairbook サポートの一次案内。メンションとチャンネルメッセージを bypass 経由で渡す。
+
+features:
+  bot_user:
+    display_name: hairbook_support
+
+oauth_config:
+  scopes:
+    bot:
+      - chat:write
+      - app_mentions:read
+      - channels:history
+      - groups:history
+
+settings:
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
+  event_subscriptions:
+    bot_events:
+      - app_mention
+      - message.channels
+      - message.groups
