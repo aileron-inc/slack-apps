@@ -6,7 +6,8 @@ This repository is **Slack App manifests and operator docs only**.
 
 - Add or update `apps/<slug>/manifest.yml` (Slack app manifest, schema v2).
 - Document create / install / secret-placement steps next to that manifest.
-- Manage only the keep-active apps as manifests: `apps/sae` (`A0BUXNTB43U`, `/slack/hairbook`), `apps/tsumugi` (`A0BUXEUUPM0`, `/slack/salonjobs`), `apps/hinata` (`A0BUXV96DM0`, `/slack/synsalon`), `apps/withwork` (`A0C2DNVFPK8`, `/slack/withwork`). The authoritative Your Apps inventory is `APPS.md`.
+- Manage keep-active Events apps as manifests: `apps/sae` (`A0BUXNTB43U`, `/slack/hairbook`), `apps/tsumugi` (`A0BUXEUUPM0`, `/slack/salonjobs`), `apps/hinata` (`A0BUXV96DM0`, `/slack/synsalon`), `apps/withwork` (`A0C2DNVFPK8`, `/slack/withwork`). The inventory is `APPS.md`.
+- `apps/withwork-bot` is the XTalent form bot (`A0C84BDDDHN`, `@withwork`). It is not マル之進 and it does not use bypass Event Subscriptions. Do not describe `A041U5XSVQQ` as retired in favor of マル之進.
 - Keep the bypass minimum scopes and bot events aligned with [aileron-inc/slack-support-bypass](https://github.com/aileron-inc/slack-support-bypass):
   - bot scopes: `chat:write`, `app_mentions:read`, `channels:history`, `groups:history`
   - bot events: `app_mention`, `message.channels`, `message.groups`
@@ -23,7 +24,7 @@ This repository is **Slack App manifests and operator docs only**.
 - Do not call Slack APIs to create or install apps unless a human explicitly asks.
 - Do not modify `aileron-inc/slack-support-bypass` from this repo's work unless that is a separate, explicit task.
 - Do not paste `apps/akari/manifest.legacy.yml` into Slack, and do not turn Socket Mode on as the Events path.
-- Do not recreate apps in the APPS.md Deleted 2026-10-07 section, or apps marked keep-elsewhere, personal/demo, or dormant. Do not add manifests for 質問ちゃん or カク之進 unless a human asks. Do not copy the non-git hub at `~/Projects/slack-apps` (icons, secrets symlink, routes) into this repo.
+- Do not recreate the apps that stayed deleted on 2026-10-07 (月島灯, Hairbook Support, the extra 紬 apps, Mia local, Demo App, withworkコロ助), or apps marked keep-elsewhere, personal/demo, or dormant. withwork-bot's old ID `A041U5XSVQQ` was deleted by mistake and recreated as `A0C84BDDDHN`. Do not add manifests for 質問ちゃん or カク之進 unless a human asks. Do not copy the non-git hub at `~/Projects/slack-apps` (icons, secrets symlink, routes) into this repo.
 
 ## Secrets stay off git
 

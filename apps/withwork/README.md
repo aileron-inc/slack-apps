@@ -2,6 +2,8 @@
 
 XTalent Slack 向けのサポート自動返信ボット（Events API の受信側）。返信ロジックは Grok Bot。このディレクトリは Slack App マニフェストとインストール手順だけ。
 
+フォーム投稿の withwork-bot（`@withwork`、`A0C84BDDDHN`）は別アプリで、手順は [`apps/withwork-bot`](../withwork-bot/README.md)。withwork-bot はマル之進の後継ではない。
+
 | 項目 | 値 |
 | --- | --- |
 | 表示名 | マル之進 |
@@ -22,7 +24,7 @@ XTalent Slack 向けのサポート自動返信ボット（Events API の受信�
 | --- | --- | --- |
 | `A0C2DNVFPK8` | マル之進 (マルノシン) | keep-active。path `/slack/withwork`。2026-10-07 の削除対象ではない |
 | `A0C20A95WR5` | withworkコロ助 | 旧表示名。2026-10-07（JST）に削除済み |
-| `A041U5XSVQQ` | withwork-bot | より古い withwork bot。2026-10-07（JST）に削除済み |
+| `A041U5XSVQQ` | withwork-bot の旧 ID | 2026-10-07 に誤削除。マル之進の後継ではない。同日再作成が `A0C84BDDDHN` |
 
 Event URL の実値は、この環境では Slack API を呼んで確認していない。
 

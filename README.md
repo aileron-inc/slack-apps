@@ -16,9 +16,10 @@ APPS.md                    # 関連アプリとローカル重複の台帳
 apps/<slug>/manifest.yml   # Slack app manifest (schema v2)
 apps/<slug>/README.md      # そのアプリのインストール手順
 apps/akari/manifest.legacy.yml  # 月島灯の Socket Mode 記録。貼らない
+apps/withwork-bot/          # フォーム bot。Events → bypass ではない
 ```
 
-台帳は [APPS.md](./APPS.md)。マニフェストを置くのは keep-active の 4 つ。`apps/withwork`（マル之進 `A0C2DNVFPK8` / XTalent）、Cajon,Inc. の `apps/sae`（さえ `A0BUXNTB43U`）、`apps/tsumugi`（`A0BUXEUUPM0`）、`apps/hinata`（`A0BUXV96DM0`）。この 4 件は 2026-10-07 の削除に入っていない。`apps/akari` は月島灯の Socket Mode 記録。Slack アプリ `A0BJYNERNG6` は 2026-10-07（JST）に削除済み。同日の削除一覧は APPS.md の Deleted 2026-10-07。
+台帳は [APPS.md](./APPS.md)。Events → bypass のマニフェストは keep-active の 4 つ。`apps/withwork`（マル之進 `A0C2DNVFPK8` / XTalent）、Cajon,Inc. の `apps/sae`（さえ `A0BUXNTB43U`）、`apps/tsumugi`（`A0BUXEUUPM0`）、`apps/hinata`（`A0BUXV96DM0`）。この 4 件は 2026-10-07 の削除に入っていない。`apps/withwork-bot` は XTalent のフォーム bot（`A0C84BDDDHN`、`@withwork`）で、マル之進とは別。旧 ID `A041U5XSVQQ` は同日の誤削除。`apps/akari` は月島灯の Socket Mode 記録。Slack アプリ `A0BJYNERNG6` は 2026-10-07（JST）に削除済み。同日の削除一覧は APPS.md の Deleted 2026-10-07。
 
 ## 境界
 

@@ -6,15 +6,18 @@ App ID の正は、オーナーが貼った Slack「Your Apps」一覧（2026-10
 
 Your Apps を台帳にした時点では Slack API を呼んでいない。Event URL の実ホストは確認していない。Request URL は `https://<bypass-worker>` + path で、hostname は書かない。
 
-2026-10-07（JST）にオーナーが `slack app delete --force` で 8 件を削除した。このフォローアップでも Slack API は呼んでいない。削除の記録はオーナーの実施報告。
+2026-10-07（JST）に `slack app delete --force` で 8 件の App ID を消した。このフォローアップでは Slack API を呼んでいない。削除と再作成の記録はオーナーの実施報告。
+
+withwork-bot の旧 ID `A041U5XSVQQ` は誤削除。retire-candidate ではなく、マル之進の後継でもない。同日 `A0C84BDDDHN` として再作成した。それ以外の 7 件は削除のまま。
 
 | 分類 | 意味 |
 | --- | --- |
-| keep-active | 稼働中の Event bot。マニフェストをこのリポジトリに置く |
-| deleted | 2026-10-07（JST）に Slack から削除済み。作り直さない |
+| keep-active | 稼働中の Event bot（bypass）。マニフェストをこのリポジトリに置く |
+| product-bot | フォーム / interactivity の本番 bot。Events → bypass ではない |
+| deleted | 2026-10-07 に削除した旧 App ID。withwork-bot の旧 ID は誤削除で同日再作成済み。それ以外は再作成しない |
 | retired | 後継が決まっている廃止アプリの記録。月島灯の Slack アプリ自体は deleted |
 | dormant | 残っているが、いまの受信パスとしては使っていない |
-| keep-elsewhere | Cajon / XTalent のプロダクトアプリ、または記録のみ。作り直さない |
+| keep-elsewhere | Cajon / XTalent のその他プロダクトアプリ。作り直さない |
 | personal/demo | 個人アプリ。Demo App は deleted |
 
 ## keep-active（マニフェストはここ）
@@ -28,11 +31,17 @@ Your Apps を台帳にした時点では Slack API を呼んでいない。Event
 
 さえの bot user は 2026-09-17 の `auth.test` で `hairbook_support`。マル之進の bot `display_name` は `marunoshin`。日向のライブ @mention は Your Apps に無い。紬の manifest は bypass 最小より広いスコープを export から残している。
 
-この 4 件は 2026-10-07 の削除に入っていない。`A0BUXNTB43U`、`A0BUXEUUPM0`、`A0BUXV96DM0`、`A0C2DNVFPK8` は稼働のまま。
+この 4 件は 2026-10-07 の削除に入っていない。`A0BUXNTB43U`、`A0BUXEUUPM0`、`A0BUXV96DM0`、`A0C2DNVFPK8` は稼働のまま。マル之進は withwork-bot とは別システム。シークレットのキーは `*_WITHWORK`。
+
+## product-bot（Events / bypass ではない）
+
+| アプリ名 | App ID | bot | ワークスペース | 役割 |
+| --- | --- | --- | --- | --- |
+| [withwork-bot](apps/withwork-bot/README.md) | `A0C84BDDDHN` | `@withwork`（`B0C6UJMAR2B` / `U0C781KG92A`） | XTalent | フォーム投稿とランク/CA の interactivity。CF Worker `withwork-slack-sync` と Rails の `SLACK_API_TOKEN`。Event Subscriptions は bypass に向けない。マル之進 `A0C2DNVFPK8` とは別 |
 
 ## Deleted 2026-10-07
 
-2026-10-07（JST）、`slack app delete --force`。retire-candidate だった行に、同日削除した月島灯と Demo App を含む。
+2026-10-07（JST）、`slack app delete --force`。月島灯、Hairbook Support、紬の local と同名、Mia local、Demo App、withworkコロ助は削除のまま。withwork-bot の旧 ID だけは誤削除で、同日再作成した。
 
 | アプリ名 | App ID | ワークスペース | メモ |
 | --- | --- | --- | --- |
@@ -43,7 +52,7 @@ Your Apps を台帳にした時点では Slack API を呼んでいない。Event
 | アシスタント Mia (local) | `A0BV0BC2U2C` | Cajon,Inc. | Mia `A0BUQDC87BN` の local 重複 |
 | Demo App | `A0C2ANFQYUF` | Cajon,Inc. | デモ |
 | withworkコロ助 | `A0C20A95WR5` | XTalent | 旧表示名。ライブの Event bot は マル之進 `A0C2DNVFPK8` |
-| withwork-bot | `A041U5XSVQQ` | XTalent | より古い withwork bot。後継は マル之進 `A0C2DNVFPK8` |
+| withwork-bot（旧） | `A041U5XSVQQ` | XTalent | 誤削除。マル之進の後継ではない。同日再作成 `A0C84BDDDHN`。旧 bot `B048NKTU1JL` / user `U047W0N0DPX` は履歴 |
 
 ## retired
 
@@ -87,7 +96,7 @@ Your Apps を台帳にした時点では Slack API を呼んでいない。Event
 | mikin-daily-bot | Your Apps に無い |
 | lead-status-bot | Your Apps に無い |
 | incident-patrol | Your Apps に無い |
-| withwork-slack-webhook | Your Apps にこの名前は無い。XTalent で残っている withwork 系の Event bot は マル之進 `A0C2DNVFPK8`。コロ助と withwork-bot は Deleted 2026-10-07 |
+| withwork-slack-webhook | Your Apps にこの名前は無い。XTalent の Event bot は マル之進 `A0C2DNVFPK8`。フォーム bot は withwork-bot `A0C84BDDDHN`。コロ助 `A0C20A95WR5` は Deleted 2026-10-07 |
 | 柚希あかり（Grok） | Your Apps に無い。カク之進と質問ちゃんは Slack App として上表にある |
 | `cajon-inc/hairbook-runbook-bot` | Your Apps の行には無い。日向のローカルメモが返信実装として指していた。Slack アプリの行は 日向 `A0BUXV96DM0` |
 

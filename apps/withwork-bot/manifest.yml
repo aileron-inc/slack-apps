@@ -1,0 +1,51 @@
+# Slack app manifest (schema v2) for withwork-bot (XTalent form bot)
+# Docs: https://docs.slack.dev/reference/app-manifest
+#
+# NOT マル之進. apps/withwork (A0C2DNVFPK8) is the support Events bot
+# for bypass path /slack/withwork and secrets *_WITHWORK.
+#
+# Live app, recreated 2026-10-07 JST on XTalent after a mistaken delete:
+#   App ID A0C84BDDDHN
+#   bot_id B0C6UJMAR2B
+#   user U0C781KG92A (@withwork)
+# Old IDs, history only: A041U5XSVQQ / B048NKTU1JL / U047W0N0DPX
+#
+# No Event Subscriptions. Runtime is CF Worker withwork-slack-sync
+# (interactivity) and Rails SLACK_API_TOKEN. Do not point this app at
+# aileron-inc/slack-support-bypass.
+#
+# Interactivity is on. The production Request URL is the existing
+# https://withwork.com/webhook/slack/... endpoint. The remainder of that
+# path is not in this repo, so request_url is unset. Do not invent it,
+# and do not paste this file over A0C84BDDDHN until the URL matches live.
+#
+# Bot scopes below are the owner's inference on 2026-10-07, not a live export.
+
+_metadata:
+  major_version: 2
+
+display_information:
+  name: withwork-bot
+  description: フォーム投稿とランク/CA の interactivity。マル之進（Events → bypass）とは別アプリ。
+
+features:
+  bot_user:
+    display_name: withwork
+
+oauth_config:
+  scopes:
+    bot:
+      - chat:write
+      - channels:history
+      - channels:read
+      - groups:history
+      - groups:read
+      - users:read
+      - usergroups:read
+
+settings:
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
+  interactivity:
+    is_enabled: true
